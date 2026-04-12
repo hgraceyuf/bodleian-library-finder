@@ -2,25 +2,6 @@
 
 A small responsive web app that shows which libraries are open right now.
 
-## Why dragging only `index.html` breaks it
-
-`index.html` depends on nearby files like `app.js`, `libraryData.js`, `styles.css`, and `manifest.webmanifest`.
-If you drag only the HTML file onto your desktop by itself, those linked files are no longer beside it, so the page loses its styling and JavaScript.
-
-If you want a desktop shortcut, use:
-- `Open Library Widget.command` as a launcher, or
-- a macOS alias to the whole project folder or to `index.html` while keeping the other files in place.
-
-## Run locally
-
-You can still double-click `index.html`, but if you want service worker caching too, serve it locally:
-
-```bash
-python3 -m http.server 8000
-```
-
-Then open [http://localhost:8000](http://localhost:8000).
-
 ## Publish on GitHub Pages
 
 1. Create a new GitHub repository.
