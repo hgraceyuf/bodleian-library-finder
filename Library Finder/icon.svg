@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Library Hours Widget Icon</title>
+  <desc id="desc">A stylized library building with a clock.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#123524" />
+      <stop offset="100%" stop-color="#2f6b49" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg)" />
+  <path d="M110 214 256 118l146 96v26H110z" fill="#f4efe4" opacity="0.95" />
+  <path d="M138 238h42v142h-42zm65 0h42v142h-42zm64 0h42v142h-42zm65 0h42v142h-42z" fill="#f4efe4" />
+  <path d="M100 380h312v28H100z" fill="#d7e3d3" />
+  <circle cx="256" cy="188" r="44" fill="#f3b562" />
+  <circle cx="256" cy="188" r="32" fill="#fff7e8" />
+  <path d="M256 188V168m0 20 17 12" stroke="#123524" stroke-linecap="round" stroke-width="10" />
+</svg>
