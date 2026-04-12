@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A widget-style library hours tracker that shows which branches are open right now."
+    />
+    <meta name="theme-color" content="#123524" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Libraries" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Library Hours Widget</title>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <p class="eyebrow">Bodleian Library Hours Widget</p>
+        <h1>Which libraries are open right now...?</h1>
+        <p class="lede">
+          This is a simple widget-style dashboard for laptop and phone. Update the data
+          file with your town’s library opening hours and this page will always
+          show what is open at the moment you check it.
+        </p>
+      </section>
+
+      <section class="widget">
+        <div class="widget-top">
+          <div>
+            <p class="label">Current time</p>
+            <h2 id="current-time">--:--</h2>
+            <p id="current-date" class="muted">Loading date…</p>
+          </div>
+
+          <div class="summary-card">
+            <p class="label">Open now</p>
+            <p id="open-count" class="summary-value">0 libraries</p>
+            <p id="next-change" class="muted">Checking today’s schedule…</p>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <input
+            id="search-input"
+            type="search"
+            placeholder="Search libraries"
+            aria-label="Search libraries"
+          />
+          <button id="open-only-toggle" class="toggle-button" type="button">
+            Show open only
+          </button>
+        </div>
+
+        <div id="libraries-list" class="libraries-list" aria-live="polite"></div>
+      </section>
+
+      <section class="notes">
+        <h3>How to customize</h3>
+        <p>
+          Edit <code>libraryData.js</code> and replace the sample branches with
+          the libraries from your town. You can then run a local server and open
+          this on your laptop or phone.
+        </p>
+      </section>
+    </main>
+
+    <script src="./libraryData.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
