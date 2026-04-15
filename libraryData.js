@@ -143,16 +143,16 @@ window.libraryData = {
       }
     },
     {
-      id: "social-sciences",
-      name: "Social Sciences Library",
-      address: "Manor Road Building",
+      id: "law-library",
+      name: "Law Library",
+      address: "St. Cross Building  ",
       schedule: {
-        monday: ["9:00-22:00"],
-        tuesday: ["9:00-22:00"],
-        wednesday: ["9:00-22:00"],
-        thursday: ["9:00-22:00"],
-        friday: ["9:00-22:00"],
-        saturday: ["10:00-18:00"],
+        monday: ["9:00-19:00"],
+        tuesday: ["9:00-19:00"],
+        wednesday: ["9:00-19:00"],
+        thursday: ["9:00-19:00"],
+        friday: ["9:00-19:00"],
+        saturday: ["10:00-19:00"],
         sunday: ["11:00-19:00"]
       }
     },
@@ -167,7 +167,7 @@ window.libraryData = {
         thursday: ["9:00-19:00"],
         friday: ["9:00-19:00"],
         saturday: ["10:00-18:00"],
-        sunday: []
+        sunday: ["11:00-19:00"]
       }
     },
     {
