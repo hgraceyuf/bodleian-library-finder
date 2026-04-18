@@ -1,4 +1,4 @@
-const CACHE_NAME = "library-hours-widget-v2";
+const CACHE_NAME = "library-hours-widget-v3";
 const APP_ASSETS = [
   "./",
   "./index.html",
@@ -10,14 +10,18 @@ const APP_ASSETS = [
 ];
 
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_ASSETS)));
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))
-    )
+    Promise.all([
+      self.clients.claim(),
+      caches.keys().then((keys) =>
+        Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key)))
+      )
+    ])
   );
 });
 
@@ -26,17 +30,20 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      if (response) {
-        return response;
-      }
+  const requestUrl = new URL(event.request.url);
+  const isSameOrigin = requestUrl.origin === self.location.origin;
 
-      return fetch(event.request).then((networkResponse) => {
+  if (!isSameOrigin) {
+    return;
+  }
+
+  event.respondWith(
+    fetch(event.request)
+      .then((networkResponse) => {
         const copy = networkResponse.clone();
         caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
         return networkResponse;
-      });
-    })
+      })
+      .catch(() => caches.match(event.request).then((response) => response || caches.match("./")))
   );
 });
