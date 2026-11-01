@@ -1,4 +1,4 @@
-const CACHE_NAME = "library-hours-widget-v4";
+const CACHE_NAME = "library-hours-widget-v5";
 const APP_ASSETS = [
   "./",
   "./index.html",
